@@ -23,21 +23,23 @@ def main():
     fase = 1
     frecuencia = 20*math.pi
 
-    #TODO construir un nuevo genrador de senales
-
-    #TODO construir un detector
-
-    #TODO construir un nuevo radar
-
+    # construir un nuevo genrador de senales
+	generador1=generador.Generador(amplitud,fase,frecuencia)
+    # construir un detector
+	detector1=detector.Detector()
+    # construir un nuevo radar
+	miradar=radar.Radar(generador1,detector1)
 
     # parametros para un blanco
     amplitud_de_frecuencia_del_blanco = amplitud + 100
     tiempo_inicial_del_blanco = datetime.datetime(2016, 3, 5, 2)
     tiempo_final_del_blanco = datetime.datetime(2016, 3, 5, 4)
-    #TODO contruir un nuevo blanco
+    #TODO construir un nuevo blanco
+	nuevoblanco=blanco.Blanco(amplitud_de_frecuencia_del_blanco, tiempo_inicial_del_blanco ,tiempo_final_del_blanco)
 
-
-    #TODO contruir un medio
+    #TODO construir un medio
+	una_senal=generador1.Generador.generar(tiempo_inicial, tiempo_final)
+	medio1=medio.Medio(una_senal, tiempo_inicial, tiempo_final)
 
     #TODO construir un radar
 
