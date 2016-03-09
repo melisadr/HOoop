@@ -8,7 +8,8 @@ class Medio(object):
         """
         Los blancos en el medio reflejan la senal
         """
-
         #TODO reflejar en un medio debe reflejar en todos los blancos de un medio
         #y devolver la senal reflejada
-        pass
+        ret=[blanco.reflejar(una_senal, tiempo_inicial, tiempo_final)\
+        for blanco in self.blancos]
+        return ret
