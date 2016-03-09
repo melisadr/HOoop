@@ -43,7 +43,7 @@ def main():
     medio1=medio.Medio(una_senal, tiempo_inicial, tiempo_final)
 
     #TODO construir un radar
-"""
+
 
 if __name__ == "__main__":
     main()

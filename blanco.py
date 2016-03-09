@@ -9,15 +9,18 @@ class Blanco(object):
         self.tiempo_final=tiempo_final
 
     def reflejar(self, senal, tiempo_inicial, tiempo_final):
-        import datetime
+	"""
+"""        
+import datetime
         #TODO ver como se encajan los tiempos del blanco y del intervalo de tiempo
         #(interseccion de invervalos)
         # despues aplicar los parametros del blanco sobre ese intervalo de tiempo
-        if tiempo_inicial >= senal.tiempo_final or \
+        if self.tiempo_inicial >= tiempo_final or \
         tiempo_final<=senal.tiempo_inicial:
+	# puedo dejar la funcion sin nada, porque si los tiempos no se cruzan no devuelve senal, cierto?
             pass       
         elif tiempo_inicial > senal.tiempo_inicial:
-            # aca deberia acortar la senal
+            # aca deberia acortar los tiempos de la senal
             pass
         
         elif tiempo_final>senal.tiempo_final:
@@ -27,7 +30,8 @@ class Blanco(object):
             #ver si es esto lo que significa amplitud pero entiendo que hay 
             # que cambiar la amplitud de la senal
             #como hago para pasarle los nuevos tiempos de esa senal?
-            # pasa la senal completa            
+            # pasa la senal completa 
+           
             senalmodificada=self.amplitud*senal    
          
         return senalmodificada
