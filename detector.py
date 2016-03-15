@@ -2,7 +2,7 @@ class Detector(object):
 
     def __init__(self, sensibilidad):
         self.sensibilidad = sensibilidad
-        
+
 
     def detectar(self, senal):
         """
@@ -17,8 +17,7 @@ class Detector(object):
 	def detectar_confp(self, senal):
         """
         Filtro 2: Filtra los valores mayores a la amplitud de la senal
-		mas el promedio
-        """
+        mas el promedio         """
         detectado = False
         for s in senal:
             if s > self.sensibilidad:

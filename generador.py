@@ -4,7 +4,6 @@ Un generador de senal es el responsable de generar una senal portadora.
 """
 
 class Generador(object):
-
     def __init__(self, amplitud, fase, frecuencia):
         self.amplitud = amplitud
         self.fase = fase
@@ -25,6 +24,6 @@ class Generador(object):
         # agregar un ruido blanco a la senal (done)
 
         ret = [self.amplitud*math.sin(2*(1/self.frecuencia)*i+self.fase) \
-        for i in muestras]+ np.random.normal(0,1,cantidad_muestras)
+        for i in muestras]+ np.random.normal(0, 1, cantidad_muestras)
 
         return ret
