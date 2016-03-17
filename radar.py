@@ -20,24 +20,16 @@ class Radar(object):
         una_senal_reflejada = medio.reflejar(una_senal, tiempo_inicial, \
         tiempo_final)
 
-        return self.detector.detectar(una_senal_reflejada)
+#        return self.detector.detectar(una_senal_reflejada)
+        return una_senal_reflejada
 
 
-    def plotear_senal(self, tiempo_inicial, tiempo_final):
+    def plotear_senal(self,una_senal_reflejada,tiempo_inicial, tiempo_final):
         import matplotlib.pyplot as pp
-        cantidad_muestras = (tiempo_final - tiempo_inicial).seconds/\
-        self.frecuencia_muestreo
-
+        cantidad_muestras = len(una_senal_reflejada)
         muestras = range(cantidad_muestras)
-        # agregar un ruido blanco a la senal (done)
-
-        ret = [self.amplitud*math.sin(2*(1/self.frecuencia)*i+self.fase) \
-        for i in muestras]+ np.random.normal(0, 1, cantidad_muestras)
-
-        return ret
-        una_senal=self.generador.generar( tiempo_inicial, tiempo_final )
         pp.figure()
-        pp.plot( muestras, una_senal, color='r', label='X' )
+        pp.plot( muestras, una_senal_reflejada, color='r', label='X' )
         pp.ylabel('Senal')
         pp.grid(True)
         pp.xlabel('Tiempo')
