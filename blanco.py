@@ -32,6 +32,10 @@ class Blanco(object):
             rangodecambio=range(muestra1,muestraf+1,1)
             for muestra in rangodecambio:
                 senalmodificada[muestra]=senal[muestra]*self.amplitud
+        elif self.tiempo_inicial < tiempo_inicial_s and \
+        self.tiempo_final>tiempo_final_s:
+            print "caso 4"
+            senalmodificada=senal*self.amplitud
         elif self.tiempo_inicial < tiempo_inicial_s:
             print "caso 3"
             cantidad_muestras=len(senal)
@@ -55,8 +59,7 @@ class Blanco(object):
             muestra1=int(round((self.tiempo_inicial - tiempo_inicial_s).seconds/\
             frecuencia_muestreo))
             muestraf=int(cantidad_muestras)
-            rangodecambio=range(muestra1,muestraf+1,1)
+            rangodecambio=range(muestra1,muestraf,1)
             for muestra in rangodecambio:
                 senalmodificada[muestra] = senal[muestra]*self.amplitud
-
         return senalmodificada

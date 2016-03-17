@@ -11,7 +11,7 @@ def main():
     import datetime
     import detector
     # Intervalo de tiempo en el que vamos a medir
-    tiempo_inicial = datetime.datetime(2016, 3, 5, 1)
+    tiempo_inicial = datetime.datetime(2016, 3, 5, 6)
     tiempo_final = datetime.datetime(2016, 3, 5, 16)
 
     import math
@@ -30,7 +30,7 @@ def main():
 
     # parametros para un blanco
     amplitud_de_frecuencia_del_blanco = amplitud + 10
-    tiempo_inicial_del_blanco = datetime.datetime(2016, 3, 5, 6)
+    tiempo_inicial_del_blanco = datetime.datetime(2016, 3, 5, 1)
     tiempo_final_del_blanco = datetime.datetime(2016, 3, 5, 20)
     #TODO construir un nuevo blanco
     una_senal=generador1.generar(tiempo_inicial,tiempo_final)
