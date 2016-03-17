@@ -15,46 +15,46 @@ class Blanco(object):
         #inicializo senal
         senalmodificada = senal
         if self.tiempo_final <= tiempo_inicial_s or self.tiempo_inicial >= tiempo_final_s:
+            print "caso 1"
             # vuelve como estaba
             senalmodificada = senal
         elif self.tiempo_inicial >= tiempo_inicial_s and \
         self.tiempo_final<=tiempo_final_s:
+            print "caso 2"
             # aca deberia acortar los tiempos de la senal
-            # calculo cantidad_muestras'
-            print "or here" 
             cantidad_muestras=len(senal)
             frecuencia_muestreo = (tiempo_final_s - tiempo_inicial_s).seconds/\
             cantidad_muestras
             muestra1=int(round((self.tiempo_inicial - tiempo_inicial_s).seconds/\
             frecuencia_muestreo))
-            print muestra1
             muestraf=int(round((self.tiempo_final - tiempo_inicial_s).seconds/\
             frecuencia_muestreo))
-            print muestraf
             rangodecambio=range(muestra1,muestraf+1,1)
-            print rangodecambio
             for muestra in rangodecambio:
                 senalmodificada[muestra]=senal[muestra]*self.amplitud
-        elif self.tiempo_inicial > tiempo_inicial_s:
-            print "here" 
-            cantidad_muestras=len(senal)
-            frecuencia_muestreo = (tiempo_final_s - tiempo_inicial_s).seconds/\
-            cantidad_muestras
-            muestra1=int(round((self.tiempo_inicial - tiempo_inicial_s).seconds/\
-            frecuencia_muestreo))
-            muestraf=int(cantidad_muestras)
-            rangodecambio=range(muestra1,muestraf+1,1)
-            print rangodecambio
-            for muestra in rangodecambio:
-                senalmodificada[muestra]=senal[muestra]*self.amplitud
-        elif self.tiempo_final>tiempo_final_s:
-            print "muymal "   
+        elif self.tiempo_inicial < tiempo_inicial_s:
+            print "caso 3"
             cantidad_muestras=len(senal)
             frecuencia_muestreo = (tiempo_final_s - tiempo_inicial_s).seconds/\
             cantidad_muestras
             muestra1=1
             muestraf=int(round((self.tiempo_final - tiempo_inicial_s).seconds/\
             frecuencia_muestreo))
+            #int(cantidad_muestras)
+            print muestra1 
+            print muestraf
+            rangodecambio=range(muestra1,muestraf+1,1)
+            print rangodecambio
+            for muestra in rangodecambio:
+                senalmodificada[muestra]=senal[muestra]*self.amplitud
+        elif self.tiempo_final>tiempo_final_s:
+            print "caso 4"
+            cantidad_muestras=len(senal)
+            frecuencia_muestreo = (tiempo_final_s - tiempo_inicial_s).seconds/\
+            cantidad_muestras
+            muestra1=int(round((self.tiempo_inicial - tiempo_inicial_s).seconds/\
+            frecuencia_muestreo))
+            muestraf=int(cantidad_muestras)
             rangodecambio=range(muestra1,muestraf+1,1)
             for muestra in rangodecambio:
                 senalmodificada[muestra] = senal[muestra]*self.amplitud
