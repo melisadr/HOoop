@@ -27,9 +27,12 @@ class Blanco(object):
             cantidad_muestras
             muestra1=int(round((self.tiempo_inicial - tiempo_inicial_s).seconds/\
             frecuencia_muestreo))
+            print muestra1
             muestraf=int(round((self.tiempo_final - tiempo_inicial_s).seconds/\
             frecuencia_muestreo))
-            rangodecambio=range(muestra1,1,muestraf+1)
+            print muestraf
+            rangodecambio=range(muestra1,muestraf+1,1)
+            print rangodecambio
             for muestra in rangodecambio:
                 senalmodificada[muestra]=senal[muestra]*self.amplitud
         elif self.tiempo_inicial > tiempo_inicial_s:
@@ -40,7 +43,8 @@ class Blanco(object):
             muestra1=int(round((self.tiempo_inicial - tiempo_inicial_s).seconds/\
             frecuencia_muestreo))
             muestraf=int(cantidad_muestras)
-            rangodecambio=range(muestra1,1,muestraf+1)
+            rangodecambio=range(muestra1,muestraf+1,1)
+            print rangodecambio
             for muestra in rangodecambio:
                 senalmodificada[muestra]=senal[muestra]*self.amplitud
         elif self.tiempo_final>tiempo_final_s:
@@ -51,7 +55,7 @@ class Blanco(object):
             muestra1=1
             muestraf=int(round((self.tiempo_final - tiempo_inicial_s).seconds/\
             frecuencia_muestreo))
-            rangodecambio=range(muestra1,1,muestraf+1)
+            rangodecambio=range(muestra1,muestraf+1,1)
             for muestra in rangodecambio:
                 senalmodificada[muestra] = senal[muestra]*self.amplitud
 

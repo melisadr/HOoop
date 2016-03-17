@@ -29,13 +29,16 @@ def main():
     miradar=radar.Radar(generador1,detector1)
 
     # parametros para un blanco
-    amplitud_de_frecuencia_del_blanco = amplitud + 10000000
+    amplitud_de_frecuencia_del_blanco = amplitud + 10
     tiempo_inicial_del_blanco = datetime.datetime(2016, 3, 5, 3)
     tiempo_final_del_blanco = datetime.datetime(2016, 3, 5, 6)
     #TODO construir un nuevo blanco
     una_senal=generador1.generar(tiempo_inicial,tiempo_final)
     nuevoblanco=blanco.Blanco(amplitud_de_frecuencia_del_blanco, tiempo_inicial_del_blanco ,tiempo_final_del_blanco)
     una_senal_reflejada=nuevoblanco.reflejar(una_senal, tiempo_inicial, tiempo_final)
+#    print una_senal
+#    print una_senal_reflejada
+    
     #TODO construir un medio
     medio1=medio.Medio(nuevoblanco)
 
